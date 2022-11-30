@@ -15,11 +15,9 @@
           messagingSenderId: "795484786355",
           appId: "1:795484786355:web:4c728f2c1ad901506f2ac6"
         };
-      
-        // Initialize Firebase
- // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
 
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
 
 /**
@@ -27,23 +25,19 @@ export const db = getFirestore();
  * @param {string} title the title of the Task
  * @param {string} description the description of the Task
  */
-export const saveTask = (title, description) =>
-  addDoc(collection(db, "tasks"), { title, description });
-
-export const onGetTasks = (callback) =>
+ export const saveTask = (title, description) =>
+ addDoc(collection(db, "tasks"), { title, description });
+ export const onGetTasks = (callback) =>
   onSnapshot(collection(db, "tasks"), callback);
-
-/**
+  /**
  *
  * @param {string} id Task ID
  */
 export const deleteTask = (id) => deleteDoc(doc(db, "tasks", id));
-
 export const getTask = (id) => getDoc(doc(db, "tasks", id));
 
 export const updateTask = (id, newFields) =>
   updateDoc(doc(db, "tasks", id), newFields);
 
 export const getTasks = () => getDocs(collection(db, "tasks"));
-    
  
